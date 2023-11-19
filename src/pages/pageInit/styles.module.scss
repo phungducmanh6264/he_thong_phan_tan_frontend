@@ -1,0 +1,24 @@
+@import "/src/scss/importer";
+
+.pageWrapper {
+  .pageContent {
+    @extend %flex_center;
+    height: 100vh;
+    .form {
+      @extend %flex_center;
+      flex-direction: column;
+      .txtInput {
+        @extend %input_txt;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.button {
+  @extend %button;
+  display: block;
+  background-color: $blueColor;
+  color: $whiteColor;
+}

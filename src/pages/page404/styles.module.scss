@@ -1,0 +1,11 @@
+@import "/src/scss/importer";
+
+.pageWrapper {
+  .pageContent {
+    @extend %flex_center;
+    height: 100vh;
+    .content {
+      font-size: 2rem;
+    }
+  }
+}

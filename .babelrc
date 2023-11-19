@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@src": "./src",
+          "@api": "./src/api",
+          "@assets": "./src/assets",
+          "@components": "./src/components",
+          "@containers": "./src/containers",
+          "@global": "./src/global",
+          "@hooks": "./src/hooks",
+          "@layouts": "./src/layouts",
+          "@pages": "./src/pages",
+          "@routes": "./src/routes",
+          "@scss": "./src/scss",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
+}
