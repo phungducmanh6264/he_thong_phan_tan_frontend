@@ -24,4 +24,10 @@ const number2Money = (number) => {
   return number.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
 };
 
-export { isIPAddress, scroll2End, number2Money };
+const convertTimestampToTime = (timestamp) => {
+  var date = new Date(timestamp);
+
+  return date.toUTCString();
+};
+
+export { isIPAddress, scroll2End, number2Money, convertTimestampToTime };

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { ExitsCS, GetInfo, SendRequest2CS } from "@api/Api";
 import { Modal, Spinner } from "react-bootstrap";
+import { convertTimestampToTime } from "@utils";
 
 function HomePage() {
   const [serverInfo, sServerInfo] = useState();
@@ -60,6 +61,8 @@ function HomePage() {
     );
   };
 
+  console.log(serverInfo?.myRequests);
+
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = (content) => {
@@ -71,6 +74,8 @@ function HomePage() {
     title: "",
     content: "",
   });
+
+  console.log(serverInfo);
 
   return (
     <>
@@ -152,13 +157,35 @@ function HomePage() {
                 </div>
                 <div className={styles.requests}>
                   <div className={styles.myRequest}>
-                    {serverInfo &&
-                      serverInfo.myRequests &&
-                      serverInfo.myRequests.map((req, i) => {
-                        <div key={i} className={styles.req}></div>;
-                      })}
+                    {serverInfo?.myRequests.map((req, i) => (
+                      <div key={i} className={styles.req}>
+                        <div className={styles.ip}>{req.hostname}</div>
+                        <div className={styles.more}>
+                          <div className={styles.time}>
+                            {convertTimestampToTime(req.timestamp)}
+                          </div>
+                          <div className={styles.status}>
+                            {req.status === 0 ? "Đang đợi" : "Đã trả lời"}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div className={styles.ortherRequest}></div>
+                  <div className={styles.ortherRequest}>
+                    {serverInfo?.ortherRequests.map((req, i) => (
+                      <div key={i} className={styles.req}>
+                        <div className={styles.ip}>{req.hostname}</div>
+                        <div className={styles.more}>
+                          <div className={styles.time}>
+                            {convertTimestampToTime(req.timestamp)}
+                          </div>
+                          <div className={styles.status}>
+                            {req.status === 0 ? "Đang đợi" : "Đã trả lời"}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

@@ -68,6 +68,43 @@
             color: $whiteColor;
           }
         }
+        .requests {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          min-height: 500px;
+          > div {
+            min-height: 100%;
+            width: 48%;
+            .req {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: center;
+              margin-bottom: 10px;
+              &:last-child {
+                margin-bottom: 0;
+              }
+              .ip {
+                width: 100%;
+                font-weight: bold;
+              }
+              .more {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.7rem;
+              }
+            }
+          }
+          .ortherRequest {
+            min-height: 100%;
+            width: 48%;
+          }
+        }
       }
     }
   }
