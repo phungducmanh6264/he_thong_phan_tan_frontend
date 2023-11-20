@@ -101,10 +101,18 @@ function HomePage() {
                 <div className={styles.listhost}>
                   {serverInfo &&
                     serverInfo?.ipAllServer &&
-                    serverInfo.ipAllServer.map((ip, i) => (
-                      <p className={styles.hostline} key={i}>
-                        {ip}
-                      </p>
+                    serverInfo.ipAllServer.map((host, i) => (
+                      <div className={styles.hostline} key={i}>
+                        <div
+                          className={
+                            host.status === 0
+                              ? `${styles.hostname}`
+                              : `${styles.hostname} ${styles.active}`
+                          }
+                        >
+                          {host.hostname}
+                        </div>
+                      </div>
                     ))}
                 </div>
               </div>
@@ -164,7 +172,13 @@ function HomePage() {
                           <div className={styles.time}>
                             {convertTimestampToTime(req.timestamp)}
                           </div>
-                          <div className={styles.status}>
+                          <div
+                            className={
+                              req.status === 0
+                                ? `${styles.status}`
+                                : `${styles.status} ${styles.active}`
+                            }
+                          >
                             {req.status === 0 ? "Đang đợi" : "Đã trả lời"}
                           </div>
                         </div>
@@ -179,7 +193,13 @@ function HomePage() {
                           <div className={styles.time}>
                             {convertTimestampToTime(req.timestamp)}
                           </div>
-                          <div className={styles.status}>
+                          <div
+                            className={
+                              req.status === 0
+                                ? `${styles.status}`
+                                : `${styles.status} ${styles.active}`
+                            }
+                          >
                             {req.status === 0 ? "Đang đợi" : "Đã trả lời"}
                           </div>
                         </div>

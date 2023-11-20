@@ -29,6 +29,15 @@
           width: 100%;
           .hostline {
             text-align: center;
+            .hostname {
+              padding: 5px 10px;
+              border-radius: 100px;
+              color: $dangerColor;
+              margin-bottom: 10px;
+              &.active {
+                color: $textColor;
+              }
+            }
           }
         }
       }
@@ -94,9 +103,23 @@
               .more {
                 width: 100%;
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
                 font-size: 0.7rem;
+                .status {
+                  margin-top: 10px;
+                  font-weight: bold;
+                  font-size: 0.5rem;
+                  border-radius: 100px;
+                  padding: 5px 10px;
+                  background-color: $blueColor;
+                  color: $whiteColor;
+                  &.active {
+                    background-color: $orangeColor;
+                    color: $whiteColor;
+                  }
+                }
               }
             }
           }
