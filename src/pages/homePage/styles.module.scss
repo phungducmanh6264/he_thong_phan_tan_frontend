@@ -1,0 +1,74 @@
+@import "/src/scss/importer";
+
+.button {
+  @extend %button;
+  display: block;
+  background-color: $blueColor;
+  color: $whiteColor;
+}
+.pageWrapper {
+  .pageContent {
+    .pageBody {
+      @extend %flex_center;
+      height: 100vh;
+      .hosts {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .title {
+          font-weight: bold;
+        }
+
+        .listhost {
+          padding: 20px 0px;
+          flex: 1;
+          width: 100%;
+          .hostline {
+            text-align: center;
+          }
+        }
+      }
+      .main {
+        flex: 1;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        .title {
+          font-weight: bold;
+          font-size: 2rem;
+          text-align: left;
+          width: 100%;
+        }
+        .serverInfo {
+          width: 100%;
+          padding: 20px;
+          .groupInfo {
+            .label {
+              font-weight: bold;
+            }
+            .value {
+            }
+          }
+        }
+        .serverMethod {
+          width: 100%;
+          .button {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            border-radius: 100px;
+            background: $blueColor;
+            color: $whiteColor;
+          }
+        }
+      }
+    }
+  }
+}

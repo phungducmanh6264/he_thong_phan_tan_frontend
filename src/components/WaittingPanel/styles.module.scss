@@ -1,0 +1,9 @@
+@import "/src/scss/importer";
+
+.cpnWrapper {
+  .cpnContent {
+    @extend %flex_center;
+    height: 100vh;
+    flex-direction: column;
+  }
+}

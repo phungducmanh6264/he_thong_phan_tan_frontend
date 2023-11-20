@@ -3,20 +3,24 @@ import { useGlobal } from "@hooks";
 import { useEffect } from "react";
 import Page404 from "@pages/page404/Page404";
 import PageInit from "@pages/pageInit/PageInit";
+import HomePage from "@pages/homePage/HomePage";
 function App() {
-  const [global, setGLB] = useGlobal();
-
-  useEffect(() => {
-    console.log(global.user);
-  }, [global]);
+  const [uGlobal, sUGlobal] = useGlobal();
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="">
-          <Route path="" element={<PageInit />} />
-          <Route path="*" element={<Page404 />} />
-        </Route>
+        {uGlobal?.status === 1 ? (
+          <Route path="">
+            <Route path="" element={<HomePage />} />
+            <Route path="*" element={<Page404 />} />
+          </Route>
+        ) : (
+          <Route path="">
+            <Route path="" element={<PageInit />} />
+            <Route path="*" element={<Page404 />} />
+          </Route>
+        )}
       </Routes>
     </BrowserRouter>
   );
