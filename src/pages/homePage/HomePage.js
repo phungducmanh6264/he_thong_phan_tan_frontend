@@ -107,7 +107,9 @@ function HomePage() {
                           className={
                             host.status === 0
                               ? `${styles.hostname}`
-                              : `${styles.hostname} ${styles.active}`
+                              : host.status === 1
+                              ? `${styles.hostname} ${styles.active}`
+                              : `${styles.hostname} ${styles.active2}`
                           }
                         >
                           {host.hostname}
@@ -165,6 +167,7 @@ function HomePage() {
                 </div>
                 <div className={styles.requests}>
                   <div className={styles.myRequest}>
+                    <div className={styles.title}>Request của server</div>
                     {serverInfo?.myRequests.map((req, i) => (
                       <div key={i} className={styles.req}>
                         <div className={styles.ip}>{req.hostname}</div>
@@ -186,6 +189,9 @@ function HomePage() {
                     ))}
                   </div>
                   <div className={styles.ortherRequest}>
+                    <div className={styles.title}>
+                      Request của các server khác
+                    </div>
                     {serverInfo?.ortherRequests.map((req, i) => (
                       <div key={i} className={styles.req}>
                         <div className={styles.ip}>{req.hostname}</div>

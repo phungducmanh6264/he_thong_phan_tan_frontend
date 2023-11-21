@@ -37,6 +37,9 @@
               &.active {
                 color: $textColor;
               }
+              &.active2 {
+                color: $blueColor;
+              }
             }
           }
         }
@@ -87,17 +90,25 @@
           > div {
             min-height: 100%;
             width: 48%;
+            .title {
+              font-size: 1rem;
+              margin-bottom: 20px;
+            }
             .req {
               display: flex;
               flex-direction: column;
               justify-content: flex-start;
               align-items: center;
               margin-bottom: 10px;
+              border: 2px solid $grayColor;
+              padding: 20px;
+              border-radius: 10px;
               &:last-child {
                 margin-bottom: 0;
               }
               .ip {
                 width: 100%;
+                font-size: 0.8rem;
                 font-weight: bold;
               }
               .more {
