@@ -8,6 +8,7 @@ function HomePage() {
   const [serverInfo, sServerInfo] = useState();
   const [methodWaitting, sMTWT] = useState(false);
 
+  // cứ 1s thì lấy thông tin các server khác trên dispatcher 1 lần
   useEffect(() => {
     const _timerId = setInterval(() => {
       GetInfo(
@@ -29,6 +30,7 @@ function HomePage() {
     };
   }, []);
 
+  // Hàm Gửi yêu cầu vào miền găng
   const sendRequest2CS = () => {
     sMTWT(true);
     SendRequest2CS(
@@ -45,6 +47,7 @@ function HomePage() {
     );
   };
 
+  // Hàm thoát miền găng
   const exitsFromCS = () => {
     sMTWT(true);
     ExitsCS(
